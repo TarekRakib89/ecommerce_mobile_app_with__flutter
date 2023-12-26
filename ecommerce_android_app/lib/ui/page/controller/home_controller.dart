@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:ecommerce_android_app/constant/global_variables.dart';
-import 'package:ecommerce_android_app/constant/utils.dart';
+
 import 'package:ecommerce_android_app/ui/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;

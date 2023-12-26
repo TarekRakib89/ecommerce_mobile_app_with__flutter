@@ -1,21 +1,28 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 import 'package:ecommerce_android_app/constant/error_handling.dart';
 import 'package:ecommerce_android_app/constant/global_variables.dart';
-
 import 'package:ecommerce_android_app/constant/utils.dart';
 import 'package:ecommerce_android_app/ui/auth/auth_network_caller/auth_network_caller.dart';
-
 import 'package:ecommerce_android_app/ui/models/user.dart';
 import 'package:ecommerce_android_app/ui/page/screen/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
-  static String? token;
-  static User? user;
+  final NetworkCaller _networkCaller;
+  AuthController(
+    this._networkCaller,
+  );
+
+  String? _token;
+  User? _userData;
+
+  String get token => _token!;
+  User get userData => _userData!;
 
   void signUp({
     required BuildContext context,
@@ -32,7 +39,7 @@ class AuthController extends GetxController {
         type: "",
         token: "");
 
-    http.Response res = await NetworkCaller().postRequestRegistartion(user);
+    http.Response res = await _networkCaller.postRequestRegistartion(user);
     if (context.mounted) {
       httpErrorHandle(
           response: res,
@@ -50,10 +57,12 @@ class AuthController extends GetxController {
     required String password,
   }) async {
     try {
-      http.Response res = await NetworkCaller().postRequestLogin(body: {
-        "email": email,
-        "password": password,
-      });
+      http.Response res = await _networkCaller.postRequestLogin(
+        body: {
+          "email": email,
+          "password": password,
+        },
+      );
       if (context.mounted) {
         httpErrorHandle(
             response: res,
@@ -63,7 +72,7 @@ class AuthController extends GetxController {
 
               await prefs.setString(
                   'x-auth-token', jsonDecode(res.body)['token']);
-              user = User.fromJson(res.body);
+              _userData = User.fromJson(res.body);
               update();
               Get.offAll(() => const MainScreen());
               if (context.mounted) {
@@ -83,7 +92,7 @@ class AuthController extends GetxController {
   }) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      token = prefs.getString('x-auth-token');
+      _token = prefs.getString('x-auth-token');
 
       debugPrint("print Token $token");
 
@@ -91,11 +100,11 @@ class AuthController extends GetxController {
         Uri.parse("$uri/api/users"),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
-          'token': token!
+          'token': token
         },
       );
 
-      user = User.fromJson(res.body);
+      _userData = User.fromJson(res.body);
 
       update();
     } catch (e) {

@@ -33,14 +33,14 @@ class Profile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AuthController.user!.username,
+                          authController.userData.username,
                           style: const TextStyle(
                               color: Colors.black,
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          AuthController.user!.email,
+                          authController.userData.email,
                         ),
                       ],
                     )

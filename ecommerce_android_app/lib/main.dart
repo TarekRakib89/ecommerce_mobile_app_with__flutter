@@ -1,7 +1,8 @@
+import 'package:ecommerce_android_app/ui/auth/auth_network_caller/auth_network_caller.dart';
 import 'package:ecommerce_android_app/ui/auth/authcontroller/auth_controller.dart';
 import 'package:ecommerce_android_app/ui/page/controller/home_controller.dart';
 
-import 'package:ecommerce_android_app/ui/splash_screen.dart';
+import 'package:ecommerce_android_app/ui/page/screen/splash_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
 class ControllerBinder extends Bindings {
   @override
   void dependencies() {
-    Get.put(AuthController());
+    Get.put(AuthController(NetworkCaller()));
     Get.put(HomeController());
   }
 }
