@@ -1,7 +1,5 @@
-import 'package:ecommerce_android_app/ui/auth/authcontroller/auth_controller.dart';
 import 'package:ecommerce_android_app/ui/page/screen/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -12,7 +10,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainPageScreenState extends State<MainScreen> {
   int _currentIndex = 0;
-  AuthController _authController = Get.find<AuthController>();
 
   final List _page = [
     const HomeScreen(),

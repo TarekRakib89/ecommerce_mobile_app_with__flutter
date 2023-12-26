@@ -1,5 +1,5 @@
 import 'package:ecommerce_android_app/constant/app_color.dart';
-import 'package:ecommerce_android_app/ui/auth/authcontroller/auth_controller.dart';
+import 'package:ecommerce_android_app/ui/auth/controller/auth_controller.dart';
 import 'package:ecommerce_android_app/ui/auth/screen/signup_screen.dart';
 import 'package:ecommerce_android_app/ui/widget/text_field_widget.dart';
 import 'package:flutter/material.dart';

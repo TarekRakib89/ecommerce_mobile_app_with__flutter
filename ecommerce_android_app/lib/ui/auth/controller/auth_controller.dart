@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:ecommerce_android_app/constant/error_handling.dart';
 import 'package:ecommerce_android_app/constant/global_variables.dart';
 import 'package:ecommerce_android_app/constant/utils.dart';
-import 'package:ecommerce_android_app/ui/auth/auth_network_caller/auth_network_caller.dart';
+import 'package:ecommerce_android_app/ui/auth/repository/auth_repository.dart';
 import 'package:ecommerce_android_app/ui/models/user.dart';
 import 'package:ecommerce_android_app/ui/page/screen/main_screen.dart';
 import 'package:flutter/material.dart';

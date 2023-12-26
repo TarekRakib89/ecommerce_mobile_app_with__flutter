@@ -1,6 +1,3 @@
-import 'package:ecommerce_android_app/product_list.dart';
-import 'package:ecommerce_android_app/ui/auth/authcontroller/auth_controller.dart';
-import 'package:ecommerce_android_app/ui/models/product.dart';
 import 'package:ecommerce_android_app/ui/page/controller/home_controller.dart';
 import 'package:ecommerce_android_app/ui/page/screen/detail_screen.dart';
 import 'package:ecommerce_android_app/ui/widget/categories_products.dart';

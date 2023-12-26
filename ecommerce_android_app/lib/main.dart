@@ -1,6 +1,7 @@
-import 'package:ecommerce_android_app/ui/auth/auth_network_caller/auth_network_caller.dart';
-import 'package:ecommerce_android_app/ui/auth/authcontroller/auth_controller.dart';
+import 'package:ecommerce_android_app/ui/auth/repository/auth_repository.dart';
+import 'package:ecommerce_android_app/ui/auth/controller/auth_controller.dart';
 import 'package:ecommerce_android_app/ui/page/controller/home_controller.dart';
+import 'package:ecommerce_android_app/ui/page/repository/home_repository.dart';
 
 import 'package:ecommerce_android_app/ui/page/screen/splash_screen.dart';
 
@@ -52,6 +53,6 @@ class ControllerBinder extends Bindings {
   @override
   void dependencies() {
     Get.put(AuthController(NetworkCaller()));
-    Get.put(HomeController());
+    Get.put(HomeController(HomeRepository()));
   }
 }
